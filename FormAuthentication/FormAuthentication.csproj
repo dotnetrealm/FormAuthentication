@@ -6,4 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\FormAuthentication.Data\FormAuthentication.Data.csproj" />
+  </ItemGroup>
+
 </Project>

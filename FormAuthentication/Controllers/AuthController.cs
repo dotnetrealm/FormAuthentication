@@ -1,4 +1,5 @@
-﻿using FormAuthentication.Models;
+﻿using FormAuthentication.Data.Interfaces;
+using FormAuthentication.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
@@ -8,16 +9,26 @@ namespace FormAuthentication.Controllers
 {
     public class AuthController : Controller
     {
+        private readonly IUsersRepository _usersRepository;
+
+        public AuthController(IUsersRepository usersRepository)
+        {
+            _usersRepository = usersRepository;
+        }
         [HttpGet]
         public IActionResult Login()
         {
+            if(User.Identity!.IsAuthenticated)
+            {
+                return RedirectToAction("Index","Home");
+            }
             return View();
         }
 
         [HttpPost]
-        public IActionResult Login(LoginModel model)
+        public async Task<IActionResult> Login(LoginModel model)
         {
-            if (IsValidUser(model.Username, model.Password))
+            if (await IsValidUserAsync(model.Username, model.Password))
             {
                 var claims = new List<Claim> { new Claim(ClaimTypes.Name, model.Username) };
 
@@ -25,7 +36,7 @@ namespace FormAuthentication.Controllers
 
                 var principal = new ClaimsPrincipal(identity);
 
-                HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
 
                 return RedirectToAction("Index", "Home");
             }
@@ -40,10 +51,10 @@ namespace FormAuthentication.Controllers
             return RedirectToAction("Login");
         }
 
-        private bool IsValidUser(string username, string password)
+        private async Task<bool> IsValidUserAsync(string username, string password)
         {
-            if (username == "Bhavin" && password == "Bhavin@123") return true;
-            return false;
+            var userFound = await _usersRepository.UserLogin(username, password);
+            return userFound;
         }
     }
 

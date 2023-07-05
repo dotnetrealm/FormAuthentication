@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33801.468
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormAuthentication", "FormAuthentication\FormAuthentication.csproj", "{02736294-56AD-41A1-8397-ACA6096FE393}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FormAuthentication", "FormAuthentication\FormAuthentication.csproj", "{02736294-56AD-41A1-8397-ACA6096FE393}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormAuthentication.Data", "FormAuthentication.Data\FormAuthentication.Data.csproj", "{F5B1C933-D997-448A-85A3-CBD251A848AF}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "UserDB", "UserDB\UserDB.sqlproj", "{3907A98F-AC00-4787-8D15-EDD086BB1676}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,16 @@ Global
 		{02736294-56AD-41A1-8397-ACA6096FE393}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02736294-56AD-41A1-8397-ACA6096FE393}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02736294-56AD-41A1-8397-ACA6096FE393}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5B1C933-D997-448A-85A3-CBD251A848AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5B1C933-D997-448A-85A3-CBD251A848AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5B1C933-D997-448A-85A3-CBD251A848AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5B1C933-D997-448A-85A3-CBD251A848AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3907A98F-AC00-4787-8D15-EDD086BB1676}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3907A98F-AC00-4787-8D15-EDD086BB1676}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3907A98F-AC00-4787-8D15-EDD086BB1676}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{3907A98F-AC00-4787-8D15-EDD086BB1676}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3907A98F-AC00-4787-8D15-EDD086BB1676}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3907A98F-AC00-4787-8D15-EDD086BB1676}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

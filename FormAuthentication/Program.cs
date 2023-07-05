@@ -1,3 +1,5 @@
+using FormAuthentication.Data.Interfaces;
+using FormAuthentication.Data.Repositories;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace FormAuthentication
@@ -7,6 +9,8 @@ namespace FormAuthentication
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            builder.Services.AddScoped<IUsersRepository, UsersRepository>();
 
             builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options =>
@@ -21,7 +25,7 @@ namespace FormAuthentication
             var app = builder.Build();
 
             app.UseAuthentication();
-
+            
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
