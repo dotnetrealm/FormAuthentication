@@ -1,0 +1,16 @@
+﻿@model LoginModel
+
+<div class="row d-flex justify-content-center align-items-center loginForm">
+    <form asp-controller="Auth" asp-action="Login" method="post" class="col-6">
+        <h1>Login</h1>
+        <div class="mb-3">
+            <label asp-for="Username" class="form-label"></label>
+            <input type="text" class="form-control" asp-for="Username">
+        </div>
+        <div class="mb-3">
+            <label asp-for="Password" class="form-label">Password</label>
+            <input type="password" class="form-control" asp-for="Password">
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+</div>
